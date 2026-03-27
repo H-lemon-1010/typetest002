@@ -5,8 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>성격 테스트</title>
 <style>
-body { font-family: sans-serif; text-align: center; padding: 20px; }
-.container { max-width: 400px; margin: auto; }
+body {
+  font-family: sans-serif;
+  text-align: center;
+  padding: 20px;
+  /* 좌: 흰색 / 우: 검정 + 중앙 그라데이션 */
+  background: linear-gradient(to right, white 0%, #f0f0f0 40%, #111 60%, black 100%);
+}
+.container {
+  max-width: 400px;
+  margin: auto;
+  background: rgba(255,255,255,0.9);
+  padding: 20px;
+  border-radius: 20px;
+}
 .btn-wrap { display: flex; gap: 10px; }
 button { flex: 1; padding: 14px; font-size: 16px; border-radius: 10px; }
 #choice1 { background: black; color: white; border: none; }
@@ -24,16 +36,16 @@ button { flex: 1; padding: 14px; font-size: 16px; border-radius: 10px; }
 
 <script>
 const questions = [
-  { q: "낯선 사람이 말을 걸면?", a: "짧게 대답", b: "대화 이어감" },
+  { q: "낯선 사람이 말을 걸면?", a: "무시한다", b: "대화 이어간다" },
   { q: "모임에서 나는?", a: "듣는 편", b: "말하는 편" },
-  { q: "계획 없는 하루", a: "그냥 보냄", b: "계획 세움" },
-  { q: "새로운 일 시작", a: "생각 후 시작", b: "일단 시작" },
-  { q: "갈등 발생", a: "피함", b: "해결 시도" },
-  { q: "혼자 시간", a: "좋다", b: "심심하다" },
-  { q: "결정 방식", a: "논리", b: "감정" },
-  { q: "약속 취소", a: "좋다", b: "아쉽다" },
-  { q: "새 환경", a: "적응 느림", b: "적응 빠름" },
-  { q: "일 처리", a: "완벽", b: "속도" }
+  { q: "계획 없는 하루가 생기면?", a: "그냥 보낸다", b: "계획을 세운다" },
+  { q: "새로운 일이 시작하면?", a: "생각 후 시작한다", b: "일단 시작한다" },
+  { q: "갈등이 발생하면?", a: "피한다", b: "해결을 시도한다" },
+  { q: "혼자만 있는 시간이 생기면?", a: "좋다", b: "심심하다" },
+  { q: "결정 방식은?", a: "논리적이다", b: "감정을 담아서 결정한다" },
+  { q: "약속이 취소되면?", a: "좋다", b: "아쉽다" },
+  { q: "새 환경이 되면?", a: "적응이 느리다", b: "적응이 빠르다" },
+  { q: "일 처리할때 방식은?", a: "완벽", b: "속도" }
 ];
 
 let index = 0;
@@ -73,7 +85,7 @@ function showResult() {
   document.body.innerHTML = `
     <div class="container">
       <h2>결과</h2>
-      <p>${getResult()}</p>
+      <p style="white-space: pre-line;">${getResult()}</p>
       <button onclick="location.reload()">다시하기</button>
     </div>
   `;
