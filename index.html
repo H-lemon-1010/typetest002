@@ -9,15 +9,12 @@ body {
   font-family: sans-serif;
   text-align: center;
   padding: 20px;
-  /* 좌: 흰색 / 우: 검정 + 중앙 그라데이션 */
-  background: linear-gradient(to right, white 0%, #f0f0f0 40%, #111 60%, black 100%);
+  /* 좌 흰색 / 우 검정색 (그라데이션 제거) */
+  background: linear-gradient(to right, white 50%, black 50%);
 }
 .container {
   max-width: 400px;
   margin: auto;
-  background: rgba(255,255,255,0.9);
-  padding: 20px;
-  border-radius: 20px;
 }
 .btn-wrap { display: flex; gap: 10px; }
 button { flex: 1; padding: 14px; font-size: 16px; border-radius: 10px; }
