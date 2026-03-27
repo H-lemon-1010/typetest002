@@ -57,6 +57,15 @@ function loadQuestion() {
   qEl.textContent = current.q;
   c1.textContent = current.a;
   c2.textContent = current.b;
+
+  // 문제 위치에 따라 글자색 자동 반전
+  // 짝수: 왼쪽(흰 배경) → 검정 글씨
+  // 홀수: 오른쪽(검정 배경) → 흰 글씨
+  if (index % 2 === 0) {
+    document.body.style.color = "black";
+  } else {
+    document.body.style.color = "white";
+  }
 }
 
 c1.onclick = () => {
