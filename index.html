@@ -7,14 +7,19 @@
 <style>
 body { font-family: sans-serif; text-align: center; padding: 20px; }
 .container { max-width: 400px; margin: auto; }
-button { display: block; width: 100%; padding: 12px; margin: 10px 0; font-size: 16px; }
+.btn-wrap { display: flex; gap: 10px; }
+button { flex: 1; padding: 14px; font-size: 16px; border-radius: 10px; }
+#choice1 { background: black; color: white; border: none; }
+#choice2 { background: white; color: black; border: 2px solid black; }
 </style>
 </head>
 <body>
 <div class="container">
   <h2 id="question"></h2>
-  <button id="choice1"></button>
-  <button id="choice2"></button>
+  <div class="btn-wrap">
+    <button id="choice1"></button>
+    <button id="choice2"></button>
+  </div>
 </div>
 
 <script>
