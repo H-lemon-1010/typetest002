@@ -9,13 +9,20 @@ body {
   font-family: sans-serif;
   text-align: center;
   padding: 20px;
-  /* 좌 흰색 / 우 검정색 (그라데이션 제거) */
   background: linear-gradient(to right, white 50%, black 50%);
 }
 .container {
   max-width: 400px;
   margin: auto;
 }
+
+/* 텍스트 왼쪽 검정 / 오른쪽 흰색 */
+h2 {
+  background: linear-gradient(to right, black 50%, white 50%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .btn-wrap { display: flex; gap: 10px; }
 button { flex: 1; padding: 14px; font-size: 16px; border-radius: 10px; }
 #choice1 { background: black; color: white; border: none; }
@@ -57,15 +64,6 @@ function loadQuestion() {
   qEl.textContent = current.q;
   c1.textContent = current.a;
   c2.textContent = current.b;
-
-  // 문제 위치에 따라 글자색 자동 반전
-  // 짝수: 왼쪽(흰 배경) → 검정 글씨
-  // 홀수: 오른쪽(검정 배경) → 흰 글씨
-  if (index % 2 === 0) {
-    document.body.style.color = "black";
-  } else {
-    document.body.style.color = "white";
-  }
 }
 
 c1.onclick = () => {
@@ -90,7 +88,7 @@ function next() {
 function showResult() {
   document.body.innerHTML = `
     <div class="container">
-      <h2>결과</h2>
+      <h2 style="background: linear-gradient(to right, black 50%, white 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">결과</h2>
       <p style="white-space: pre-line;">${getResult()}</p>
       <button onclick="location.reload()">다시하기</button>
     </div>
