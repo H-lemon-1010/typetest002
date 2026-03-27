@@ -88,8 +88,26 @@ function next() {
 function showResult() {
   document.body.innerHTML = `
     <div class="container">
-      <h2 style="background: linear-gradient(to right, black 50%, white 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">결과</h2>
-      <p style="white-space: pre-line;">${getResult()}</p>
+      <h2 style="
+        background: linear-gradient(to right, orange 50%, yellow 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        font-style: italic;
+      ">결과</h2>
+      <p style="
+        white-space: pre-line;
+        background: linear-gradient(to right, orange 50%, yellow 50%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+        font-style: italic;
+        font-size: 18px;
+      ">${getResult()}</p>
+      <button onclick="location.reload()">다시하기</button>
+    </div>
+  `;
+}</p>
       <button onclick="location.reload()">다시하기</button>
     </div>
   `;
