@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성격 테스트</title>
+<style>
+body { font-family: sans-serif; text-align: center; padding: 20px; }
+.container { max-width: 400px; margin: auto; }
+button { display: block; width: 100%; padding: 12px; margin: 10px 0; font-size: 16px; }
+.hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h2 id="question"></h2>
+  <button id="choice1"></button>
+  <button id="choice2"></button>
+  <button id="nextBtn" class="hidden">다음</button>
+</div>
+
+<script>
+const questions = [
+  { q: "낯선 사람이 말을 걸면?", a: "짧게 대답", b: "대화 이어감" },
+  { q: "모임에서 나는?", a: "듣는 편", b: "말하는 편" },
+  { q: "계획 없는 하루", a: "그냥 보냄", b: "계획 세움" },
+  { q: "새로운 일 시작", a: "생각 후 시작", b: "일단 시작" },
+  { q: "갈등 발생", a: "피함", b: "해결 시도" },
+  { q: "혼자 시간", a: "좋다", b: "심심하다" },
+  { q: "결정 방식", a: "논리", b: "감정" },
+  { q: "약속 취소", a: "좋다", b: "아쉽다" },
+  { q: "새 환경", a: "적응 느림", b: "적응 빠름" },
+  { q: "일 처리", a: "완벽", b: "속도" }
+];
+
+let index = 0;
+let score = 0;
+
+const qEl = document.getElementById("question");
+const c1 = document.getElementById("choice1");
+const c2 = document.getElementById("choice2");
+const nextBtn = document.getElementById("nextBtn");
+
+function loadQuestion() {
+  nextBtn.classList.add("hidden");
+  const current = questions[index];
+  qEl.textContent = current.q;
+  c1.textContent = current.a;
+  c2.textContent = current.b;
+}
+
+c1.onclick = () => {
+  score += 0;
+  nextBtn.classList.remove("hidden");
+};
+
+c2.onclick = () => {
+  score += 1;
+  nextBtn.classList.remove("hidden");
+};
+
+nextBtn.onclick = () => {
+  index++;
+  if (index < questions.length) {
+    loadQuestion();
+  } else {
+    showResult();
+  }
+};
+
+function showResult() {
+  document.body.innerHTML = `
+    <div class="container">
+      <h2>결과</h2>
+      <p>${getResult()}</p>
+      <button onclick="location.reload()">다시하기</button>
+    </div>
+  `;
+}
+
+function getResult() {
+  if (score <= 3) return "신중하고 조용한 성향";
+  if (score <= 7) return "균형 잡힌 성향";
+  return "활발하고 외향적인 성향";
+}
+
+loadQuestion();
+</script>
+</body>
+</html>
